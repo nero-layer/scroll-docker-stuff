@@ -22,9 +22,17 @@ async function main() {
   const L2GatewayRouterAddress = addressFile.get("L2GatewayRouter.proxy");
   const L2ScrollMessengerAddress = addressFile.get("L2ScrollMessenger");
   const L2StandardERC20FactoryAddress = addressFile.get("ScrollStandardERC20Factory");
-  const L1StandardERC20GatewayAddress = process.env.L1_STANDARD_ERC20_GATEWAY_PROXY_ADDR!;
+  const L1StandardERC20GatewayAddress = "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318"// process.env.L1_STANDARD_ERC20_GATEWAY_PROXY_ADDR!;
 
-  if ((await L2StandardERC20Gateway.counterpart()) === constants.AddressZero) {
+  console.log("L2GatewayRouterAddress")
+  console.log(L2GatewayRouterAddress)
+  console.log("L2ScrollMessengerAddress")
+  console.log(L2ScrollMessengerAddress)
+  console.log("ScrollStandardERC20Factory")
+  console.log(L2StandardERC20FactoryAddress)
+  console.log("L1_STANDARD_ERC20_GATEWAY_PROXY_ADDR")
+  console.log(L1StandardERC20GatewayAddress)
+  //if ((await L2StandardERC20Gateway.counterpart()) === constants.AddressZero) {
     const tx = await L2StandardERC20Gateway.initialize(
       L1StandardERC20GatewayAddress,
       L2GatewayRouterAddress,
@@ -34,7 +42,7 @@ async function main() {
     console.log("initialize L2StandardERC20Gateway, hash:", tx.hash);
     const receipt = await tx.wait();
     console.log(`✅ Done, gas used: ${receipt.gasUsed}`);
-  }
+  // }
 }
 
 // We recommend this pattern to be able to use async/await everywhere

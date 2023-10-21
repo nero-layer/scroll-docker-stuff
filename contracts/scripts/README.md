@@ -10,7 +10,7 @@ export layer2=l2geth # change to actual network name
 export owner=0x0000000000000000000000000000000000000000 # change to actual owner
 
 # deploy contracts in layer 1
-npx hardhat --network $layer1 run scripts/deploy_proxy_admin.ts
+npx hardhat --network $layer1 run ./scripts/deploy_proxy_admin.ts
 npx hardhat --network $layer1 run scripts/deploy_scroll_chain.ts
 env CONTRACT_NAME=L1ScrollMessenger npx hardhat run --network $layer1 scripts/deploy_proxy_contract.ts
 env CONTRACT_NAME=L1GatewayRouter npx hardhat run --network $layer1 scripts/deploy_proxy_contract.ts
@@ -32,6 +32,9 @@ env CONTRACT_NAME=L2ERC721Gateway npx hardhat run --network $layer2 scripts/depl
 env CONTRACT_NAME=L2ERC1155Gateway npx hardhat run --network $layer2 scripts/deploy_proxy_contract.ts
 env CONTRACT_NAME=L2ETHGateway npx hardhat run --network $layer2 scripts/deploy_proxy_contract.ts
 env CONTRACT_NAME=L2WETHGateway npx hardhat run --network $layer2 scripts/deploy_proxy_contract.ts
+
+
+
 
 # initalize contracts in layer 1, should set proper bash env variables first
 npx hardhat --network $layer1 run scripts/initialize_l1_erc20_gateway.ts

@@ -21,7 +21,7 @@ async function main() {
 
   const L1GatewayRouterAddress = addressFile.get("L1GatewayRouter.proxy");
   const L1ScrollMessengerAddress = addressFile.get("L1ScrollMessenger.proxy");
-  const L2StandardERC20GatewayAddress = process.env.L2_STANDARD_ERC20_GATEWAY_PROXY_ADDR!;
+  const L2StandardERC20GatewayAddress =  process.env.L2_STANDARD_ERC20_GATEWAY_PROXY_ADDR!;
   const L2StandardERC20Impl = process.env.L2_SCROLL_STANDARD_ERC20_ADDR!;
   const L2StandardERC20FactoryAddress = process.env.L2_SCROLL_STANDARD_ERC20_FACTORY_ADDR!;
 
