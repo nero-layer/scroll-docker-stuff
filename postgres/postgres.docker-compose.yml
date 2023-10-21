@@ -1,0 +1,23 @@
+version: '3.1'
+
+networks:
+    scrollnet:
+      external:
+        name: scrollnet
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    hostname: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres 
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - scrollnet
+    # volumes: 
+    #  - ./postgres_db_1:/var/lib/postgresql/data

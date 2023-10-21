@@ -1,0 +1,18 @@
+version: '3.1'
+
+networks:
+    scrollnet:
+      external:
+        name: scrollnet
+
+services:
+  scroll_l1geth:
+    image: scroll_l1geth
+    container_name: l1geth
+    hostname: l1geth
+    restart: always
+    ports:
+      - 8545:8545
+      - 8546:8546
+    networks:
+      - scrollnet

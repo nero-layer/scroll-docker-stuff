@@ -1,0 +1,18 @@
+version: '3.1'
+
+networks:
+    scrollnet:
+      external:
+        name: scrollnet
+
+services:
+  scroll_l2geth:
+    image: scroll_l2geth
+    container_name: l2geth
+    hostname: l2geth
+    restart: always
+    ports:
+      - 9999:8545
+      - 10000:8546
+    networks:
+      - scrollnet
