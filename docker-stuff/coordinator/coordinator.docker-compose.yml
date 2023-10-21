@@ -1,0 +1,19 @@
+version: '3.1'
+
+networks:
+    scrollnet:
+      external:
+        name: scrollnet
+
+services:
+  coordinator:
+    image: scrolltech/coordinator
+    container_name: coordinator
+    restart: always
+    ports:
+      - 8555:8555
+    volumes:
+      - ./config.json:/config.json
+    # environment:
+    networks:
+      - scrollnet
